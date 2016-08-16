@@ -3,6 +3,10 @@ services:
     nvm:
         build:
             context: .
+            args:
+                - PUID=1000
+                - PGID=1000
+                - INSTALL_INSECURE=true
             dockerfile: dockerfile.nvm
         container_name: nvm
         restart: always
@@ -10,6 +14,7 @@ services:
          - "3000:3000"
         volumes:
             - ./volumes/app:/home/mean
+        tty: true
 
     mongo:
         image: mongo:3.0
