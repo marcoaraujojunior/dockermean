@@ -1,0 +1,10 @@
+FROM ubuntu:16.04
+
+RUN apt-get update
+
+RUN apt-get install -y g++ libkrb5-dev curl
+
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
+
+EXPOSE 3000
+

@@ -1,0 +1,22 @@
+version: '2'
+services:
+    nvm:
+        build:
+            context: .
+            dockerfile: dockerfile.nvm
+        container_name: nvm
+        restart: always
+        ports:
+         - "3000:3000"
+        volumes:
+            - ./volumes/app:/home/mean
+
+    mongo:
+        image: mongo:3.0
+        container_name: mongo
+        restart: always
+        ports:
+         - "27017:27017"
+        volumes:
+            - ./volumes/data:/data/db
+
