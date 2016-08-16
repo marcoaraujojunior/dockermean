@@ -13,7 +13,7 @@ services:
         ports:
          - "3000:3000"
         volumes:
-            - ./volumes/app:/home/mean
+            - ./volumes/app:/home/nvm/mean
         tty: true
 
     mongo:
