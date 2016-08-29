@@ -1,19 +1,13 @@
 version: '2'
 services:
-    nvm:
-        build:
-            context: .
-            args:
-                - PUID=1000
-                - PGID=1000
-                - INSTALL_INSECURE=true
-            dockerfile: dockerfile.nvm
-        container_name: nvm
+    node:
+        image: node:0.12-wheezy
+        container_name: node
         restart: always
         ports:
          - "3000:3000"
         volumes:
-            - ./volumes/app:/home/nvm/mean
+            - ./volumes/app:/mean
         tty: true
 
     mongo:
@@ -22,6 +16,4 @@ services:
         restart: always
         ports:
          - "27017:27017"
-        volumes:
-            - ./volumes/data:/data/db
 
